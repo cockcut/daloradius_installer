@@ -117,6 +117,12 @@ firewall-cmd --add-port=1812/udp --permanent
 firewall-cmd --add-port=1813/udp --permanent
 firewall-cmd --reload
 
+# --- 9. Allow SElinux ---
+setenforce 0
+# --- SELINUX=enforcing 일 경우에만 SELINUX=permissive로 변경 ---
+sudo sed -i '/^SELINUX=enforcing/s/enforcing/permissive/' /etc/selinux/config
+
+
 echo "==============================================="
 echo "✅ daloRADIUS 설치가 완료되었습니다!"
 echo "웹 브라우저에서 아래 주소로 접속하세요:"
