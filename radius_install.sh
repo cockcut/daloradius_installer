@@ -77,7 +77,7 @@ mysql -u root -p"${MYSQL_ROOT_PASSWORD}" -e "GRANT ALL PRIVILEGES ON \`${MYSQL_D
 mysql -u root -p"${MYSQL_ROOT_PASSWORD}" -e "FLUSH PRIVILEGES;"
 echo "MySQL/MariaDB database와 사용자 생성 완료."
 mysql -u root -p"${MYSQL_ROOT_PASSWORD}" ${MYSQL_DATABASE} < "${freeradius_path}/mods-config/sql/main/mysql/schema.sql"
-mysql -u root -p"${MYSQL_ROOT_PASSWORD}" ${MYSQL_DATABASE} < "${WEB_ROOT}/radius/contrib/db/mysql-daloradius.sql "
+mysql -u root -p"${MYSQL_ROOT_PASSWORD}" ${MYSQL_DATABASE} < "${WEB_ROOT}/radius/contrib/db/mysql-daloradius.sql"
 echo "MySQL/MariaDB database 적용 완료."
 
 # --- 4. EAP 인증서 설정 ---
