@@ -14,6 +14,7 @@
    chmod +x radius_install.sh
 
 5) 자동설치 스크립트에 실행
+   
    ./radius_install.sh
 
       6-1) MySQL/MariaDB root 비밀번호를 입력하세요:       -----> "mysql의 root 패스워드 입력후 Enter"
