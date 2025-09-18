@@ -27,7 +27,6 @@
     $log = "visited page: ";
 
 // RADIUS 재시작 로직 추가
-// CentOS 7은 systemctl을 사용하므로, 이 명령어를 사용합니다.
 if (isset($_POST['restart_radius'])) {
     $command = "sudo /usr/bin/systemctl restart radiusd.service 2>&1";
     $return_code = 1; // 실패로 초기화
