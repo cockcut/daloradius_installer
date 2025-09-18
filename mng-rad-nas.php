@@ -44,8 +44,8 @@ if (isset($_POST['restart_radius'])) {
         if (strpos($error_message, 'sudo: a password is required') !== false) {
             $message .= "<br><br><b>💡 문제 해결 방법:</b><br>";
             $message .= "이 문제는 웹 서버가 sudo 명령을 실행할 권한이 없기 때문입니다. 아래 명령어로 sudoers 파일을 수정하여 비밀번호 없이 실행할 수 있도록 허용해야 합니다.";
-            $message .= "<br><br><code><b>sudo visudo 를 실행합니다.</b></code><br>";
-            $message .= "파일 맨 아래에 다음 줄을 추가한후 브라우저를 refresh 하세요.:<br>";
+            $message .= "<br><br><code><b>1. sudo visudo 를 실행합니다.</b></code><br>";
+            $message .= "2. 파일 맨 아래에 다음 줄을 추가한후 브라우저를 refresh 하세요.:<br>";
             $message .= "<code><b>apache ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart radiusd.service</b></code><br>";
         }
     }
