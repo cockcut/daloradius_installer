@@ -73,7 +73,7 @@ mysql -u root -p"${MYSQL_ROOT_PASSWORD}" -e "CREATE USER IF NOT EXISTS '${MYSQL_
 mysql -u root -p"${MYSQL_ROOT_PASSWORD}" -e "GRANT ALL PRIVILEGES ON \`${MYSQL_DATABASE}\`.* TO '${MYSQL_USER}'@'${MYSQL_HOST}';"
 mysql -u root -p"${MYSQL_ROOT_PASSWORD}" -e "FLUSH PRIVILEGES;"
 echo "MySQL/MariaDB database와 사용자 생성 완료."
-mysql -u root -p"${MYSQL_ROOT_PASSWORD}" ${MYSQL_DATABASE} < "${WEB_ROOT}/radius/contrib/db/fr2-mysql-daloradius-and-freeradius.sql"
+mysql -u root -p"${MYSQL_ROOT_PASSWORD}" ${MYSQL_DATABASE} < "${freeradius_path}/mods-config/sql/main/mysql/schema.sql"
 echo "MySQL/MariaDB database 적용 완료."
 
 # --- 4. EAP 인증서 설정 ---
