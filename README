@@ -4,16 +4,18 @@
 1) 먼저 설치해야한 프로그램 git, httpd 설치
    dnf -y install git httpd
 
-2) git 레포지토리 복사하여 private 폴더에 다운로그 하기
+2) cd /var/www/html/
+
+3) git 레포지토리 복사하여 private 폴더에 다운로그 하기
    git clone https://github.com/cockcut/daloradius_installer.git private
 
-3) cd private
+4) cd private
 
-4) 자동설치 스크립트에 실행권한 주기
+5) 자동설치 스크립트에 실행권한 주기
 
    chmod +x radius_install.sh
 
-5) 자동설치 스크립트에 실행
+6) 자동설치 스크립트에 실행
    
    ./radius_install.sh
 
@@ -24,6 +26,6 @@
       6-5) Enter MySQL User (default: radius):           -----> "Entert입력시 기본값으로 설정"
       6-6) Enter MySQL Password (default: radius12#$):    -----> "Entert입력시 기본값으로 설정"
 
-5) http://'serverip'/private/radius 접속
+7) http://'serverip'/private/radius 접속
 
-6) 초기 WEB-UI ID/비번 : administrator / radius
+8) 초기 WEB-UI ID/비번 : administrator / radius
