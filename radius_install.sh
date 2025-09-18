@@ -50,14 +50,22 @@ read -s -p "Enter MySQL Password (default: radius12#$): " input_pw
 MYSQL_PASSWORD=${input_pw:-"radius12#$"}
 echo ""
 
-# MariaDB 초기 설정 (이전 오류 해결)
-# MariaDB 설치 후 초기 비밀번호가 없는 상태에서 root 비밀번호를 설정
-mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';"
-if [ $? -ne 0 ]; then
-    echo "오류: MySQL/MariaDB root 비밀번호 설정에 실패했습니다. 스크립트를 종료합니다."
-    exit 1
+
+# MySQL root 비밀번호 접속 테스트
+if ! mysql -u root -p"${MYSQL_ROOT_PASSWORD}" -e "SELECT 1" &> /dev/null; then
+    echo "정보: MySQL root 비밀번호 접속에 실패했습니다. 초기 설정을 시도합니다."
+    
+    # MariaDB 초기 설정 (이전 오류 해결)
+    # MariaDB 설치 후 초기 비밀번호가 없는 상태에서 root 비밀번호를 설정
+    mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';"
+    if [ $? -ne 0 ]; then
+        echo "오류: MySQL/MariaDB root 비밀번호 설정에 실패했습니다. 스크립트를 종료합니다."
+        exit 1
+    fi
+    echo "MySQL/MariaDB root 비밀번호 설정 완료."
+else
+    echo "정보: MySQL root 비밀번호 접속에 성공했습니다. 초기 설정을 건너뜁니다."
 fi
-echo "MySQL/MariaDB root 비밀번호 설정 완료."
 
 # 데이터베이스와 사용자 생성
 mysql -u root -p"${MYSQL_ROOT_PASSWORD}" -e "CREATE DATABASE IF NOT EXISTS \`${MYSQL_DATABASE}\`"
