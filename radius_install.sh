@@ -85,10 +85,9 @@ rm -f *.pem *.der *.csr *.crt *.key *.p12 serial* index.txt*
 chmod -R 755 ${freeradius_path}/certs/
 cd -
 
-
 # --- 5. FreeRADIUS 설정 (EAP & Accounting 포함) ---
 echo "--- 5. FreeRADIUS 설정 중..."
-cp -f ./sql ${freeradius_path}/mods-available/
+\cp -f ./sql ${freeradius_path}/mods-available/
 #sed -i 's|driver = "rlm_sql_null"|driver = "rlm_sql_mysql"|' ${freeradius_path}/mods-available/sql
 #sed -i 's|dialect = "sqlite"|dialect = "mysql"|' ${freeradius_path}/mods-available/sql
 sed -i 's|dialect = ${modules.sql.dialect}|dialect = "mysql"|' ${freeradius_path}/mods-available/sqlcounter
