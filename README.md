@@ -1,4 +1,6 @@
 # daloradius_installer
+# Rocky Linux 8 minimal 버전 기준.
+
 1) dnf -y install git httpd
 2) mkdir /var/www/html/private
 3) git clone https://github.com/cockcut/daloradius_installer.git private
