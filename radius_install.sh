@@ -88,7 +88,7 @@ cd -
 
 # --- 5. FreeRADIUS 설정 (EAP & Accounting 포함) ---
 echo "--- 5. FreeRADIUS 설정 중..."
-\cp -f ./sql ${freeradius_path}/mods-available/
+\cp -f ./sql ${freeradius_path}/mods-enabled/
 #sed -i 's|driver = "rlm_sql_null"|driver = "rlm_sql_mysql"|' ${freeradius_path}/mods-available/sql
 #sed -i 's|dialect = "sqlite"|dialect = "mysql"|' ${freeradius_path}/mods-available/sql
 sed -i 's|dialect = ${modules.sql.dialect}|dialect = "mysql"|' ${freeradius_path}/mods-available/sqlcounter
