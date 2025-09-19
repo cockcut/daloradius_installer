@@ -144,7 +144,7 @@ sed -i '/^SELINUX=enforcing/s/enforcing/permissive/' /etc/selinux/config
 echo "==============================================="
 echo "✅ daloRADIUS 설치가 완료되었습니다!"
 echo "웹 브라우저에서 아래 주소로 접속하세요:"
-echo "    http://<서버_IP_주소>/radius"
+echo "    http://<서버_IP_주소>/private/radius"
 echo ""
 echo "기본 로그인 정보:"
 echo "    - 사용자명: administrator"
