@@ -1,6 +1,6 @@
 # daloradius_installer
 # web-ui는 daloRADIUS 1.1-2(by Liran Tal)
-# Rocky Linux 8 minimal 버전 기준.
+# OS는 Rocky Linux 8 minimal 버전 기준.
 
 1) 먼저 설치해야한 프로그램 git, httpd 설치
    dnf -y install git httpd
